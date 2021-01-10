@@ -21,13 +21,13 @@ Hyperdrive allows to vary hyper-parameters of the model. Regularization paramete
 Bandit policy was employed for early termination based on a slack factor of 0.1, evaluation interval of 1, and a delay evaluation of 5. Policy for preventive termination of unsuccessful runs is important to control for resource allocation and time.
 
 The best model achieved testing accuracy of **0.916** with regularization of approximately 0.5 and 100 iterations.
-
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%207.31.30%20AM.png
 
 ## AutoML
 Automated machine learning takes fundamentally different approach, as it varies functional form of the model. In other words, this tool goes through a library of binary classifiers and fits the data iteratively. 
-1[](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-09%20at%208.04.01%20PM.png)
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-09%20at%208.04.01%20PM.png)
 As expected, the best performance was achieved by a voting ensemble model with testing accuracy of **0.917**.
-
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-09%20at%208.04.23%20PM.png)
 ## Pipeline comparison
 As stated above, two approached are not directly comparable because they follow different knowledge discovery paths. 
 
