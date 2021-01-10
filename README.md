@@ -14,7 +14,7 @@ Overall, VotingEnsemble was the best performing model based on testing accuracy 
 
 
 ## Scikit-learn Pipeline
-Linear logistic regression was fit on cleaned training data to produce the best prediction as measured by testing accuracy. Proposed design with isolated model logic in `train.py` requires a preliminary run of the script in order to fit the model, i.e. instantiate and run `LogisticRegression` object. Only once the model is fitted, training accuracy becomes available because it is a computed value returned from `model.predict()`. Baseline accuracy of the first run was **0.911**.
+Linear logistic regression was fit on cleaned training data to produce the best prediction as measured by testing accuracy. Proposed design with isolated model logic in `train.py` requires a preliminary run of the script in order to fit the model, i.e. instantiate and run `LogisticRegression` object. Only once the model is fitted, training accuracy becomes available because it is a computed value returned from `model.predict()`. Baseline accuracy of the first run was **0.913**.
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%207.31.00%20AM.png)
 Hyperdrive allows to vary hyper-parameters of the model. Regularization parameter was randomly sampled from (0, 1) uniform space and iterations were randomly selected from the following range: 50, 100, 150, 200, 250. This approach provided a good coverage of possible parameters.
 
