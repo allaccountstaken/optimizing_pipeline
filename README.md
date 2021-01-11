@@ -6,7 +6,7 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-The dataset contains panel data about clients marketing characteristics. It is required to predict if a certain client will make a fixed term deposit. In other words, it is a binary classification problem, as the input values are marketing characteristics and the target output is 1 or 0, i.e “yes” or “no” prediction. The set comes in a tabular format with rows containing information about specific clients and columns being marketing characteristics.
+The dataset contains panel data about clients marketing characteristics. It is required to predict if a certain client will make a fixed term deposit. In other words, it is a binary classification problem, as the input values are marketing characteristics and the target output is 1 or 0, i.e *“yes”* or *“no”* prediction. The set comes in a tabular format with rows containing information about specific clients and columns being marketing characteristics.
 
 Proposed pipeline optimization can be broken down into several parts. First, Python script is used to clean the dataset and create a baseline model. Second, Notebook environment is used to run Azure hyperdrive functionality to optimize hyper-parameters of the baseline model. After that, AutoML is used to find an even more accurate model. Present research report discusses these steps in  more detail.
 
@@ -24,7 +24,7 @@ Hyperdrive allows to vary hyper-parameters of the model. Regularization paramete
 
 Bandit policy was employed for early termination based on a slack factor of 0.1, evaluation interval of 1, and a delay evaluation of 5. Policy for preventive termination of unsuccessful runs is important to control for resource allocation and time.
 
-The best model achieved testing accuracy of **0.91551** with regularization of approximately 0.5 and 100 iterations.
+The best model achieved somewhat better testing accuracy of **0.91551** with regularization of approximately 0.5 and 100 iterations.
 
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-11%20at%206.39.48%20AM.png)
 
