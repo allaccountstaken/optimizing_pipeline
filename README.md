@@ -35,7 +35,9 @@ As expected, even better accuracy was achieved by ensemble-type models: voting p
 
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%203.12.23%20PM.png)
 
-VotingEnsemble, the most accurate model, combines results of several good, but conceptually different models, by allowing several classifiers to “vote” 1 or 0 for every testing observations.  Such approach effectively minimizes weaknesses of contributing models by reducing variance of individual testing errors. This can potentially result in even better overall testing accuracy at cost of explainability.  
+VotingEnsemble `prefittedsoftvotingclassifier`, the most accurate model, combines probability-weighted results of several good, but conceptually different models, by allowing several classifiers to “vote” 1 or 0 for every testing observations.  By default, the model uses `fit_intercept=True` producing a functional form with a constant term. Interestingly, the model also defaults to `multi_class=‘multinomial’` and thus uses cross-entropy loss.
+
+Such approach effectively minimizes weaknesses of contributing models by reducing variance of individual testing errors. This can potentially result in even better overall testing accuracy at cost of explainability.  
 
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%203.10.18%20PM.png)
 
