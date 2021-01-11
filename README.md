@@ -47,8 +47,8 @@ Important, varying regularization of a logistic regression only changes the bias
 AutoML, on the other hand, simply iterates through generally appropriate models, in this case, minimizing variance of prediction. Unsurprisingly, an ensemble of voting gives better accuracy with a tradeoff of potentially diminished explainability. 
 
 ## Future work
-Limitation of this study stems from the original problem definition and a much simplified dataset. 
+Limitation of the proposed approach stems from the original problem definition and a simplified dataset. It is assumed that panel data, basically a snapshot, can be used to model demand for fixed term deposits.Realistically, decision to place a fixed term deposit is likely time-variant and driven by dynamic utility curves. 
 
-Decision to place a fixed term deposit is likely time-variant and driven by dynamic utility curves. Time series forecast is more appropriate as there could be strong seasonality and trend effects. Moreover, macroeconomic factors, such as growth and interest rates, as well as fixed term deposit rates are important lurking variables. 
+Time series forecast is more appropriate as there could be strong seasonality and trend effects. Moreover, macroeconomic factors, such as growth and interest rates, as well as fixed term deposit rates are important lurking variables. For example, year-end bonuses paid to certain employees will likely increase their interested in placing deposits. On the other hand, fiscal easing and lowering of interest rates will make savings less attractive and thus decreases demand for such products.
 
-A better model will not necessarily have a better testing accuracy, but will likely perform better out-of-sample. 
+Alternative model does not necessarily need a better classification accuracy, but should account for the true nature of phenomena and perform better out-of-sample. Using the snapshot dataset possibly commingles data points from different time periods and economic regimes without proper labeling. Time-series forecasting may fall behind in terms of accuracy, but will better deal with data drift.
