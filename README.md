@@ -28,8 +28,14 @@ The best model achieved testing accuracy of **0.916** with regularization of app
 ## AutoML
 Automated machine learning takes fundamentally different approach, as it varies functional form of the model. In other words, this tool goes through a library of binary classifiers and fits the data iteratively. 
 
-As expected, the best performance was achieved by a voting ensemble model with testing accuracy of **0.917**.
-![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%207.32.01%20AM.png)
+As expected, even better accuracy was achieved by ensemble-type models: voting produced best testing accuracy of **0.91745**, followed by stacked model’s accuracy of **0.9164**.
+
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%203.12.23%20PM.png)
+
+VotingEnsemble, the most accurate model, combines results of several good, but conceptually different models, by allowing several classifiers to “vote” 1 or 0 for every testing observations.  Such approach effectively minimizes weaknesses of contributing models by reducing variance of individual testing errors. This can potentially result in even better overall testing accuracy at cost of explainability.  
+
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%203.10.18%20PM.png)
+
 ## Pipeline comparison
 As stated above, two approached are not directly comparable because they follow different knowledge discovery paths. 
 
