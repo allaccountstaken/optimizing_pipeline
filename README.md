@@ -6,11 +6,11 @@ In this project, we build and optimize an Azure ML pipeline using the Python SDK
 This model is then compared to an Azure AutoML run.
 
 ## Summary
-The dataset contains panel data about clients marketing characteristics. It is required to predict if a certain client will make a fixed term deposit. In other words, it is a binary classification problem, as the input values are marketing characteristics and the target output is 1 or 0, i.e “yes” or “no” prediction. 
+The dataset contains panel data about clients marketing characteristics. It is required to predict if a certain client will make a fixed term deposit. In other words, it is a binary classification problem, as the input values are marketing characteristics and the target output is 1 or 0, i.e “yes” or “no” prediction. The set comes in a tabular format with rows containing information about specific clients and columns being marketing characteristics.
 
-The set comes in a tabular format with rows containing information about specific clients and columns being marketing characteristics. The file of size 4.2 MB is stored in comma-separated values format and is available for download from a web archive.
-
-Overall, VotingEnsemble was the best performing model based on testing accuracy score of  **0.917**. Important to note, the model was evaluated in-sample only after random `train-test-split` and class imbalances were not corrected for. Out-of-sample regime changes and data drifts will likely jeopardize the model performance. 
+Proposed pipeline optimization can be broken down into several parts. First, Python script is used to clean the dataset and create a baseline model. Second, Notebook environment is used to run Azure hyperdrive functionality to optimize hyper-parameters of the baseline model. After that, AutoML is used to find even more accurate model.
+![](http://localhost:8888/view/img/Screen%20Shot%202021-01-10%20at%202.06.56%20PM.png)
+Overall, VotingEnsemble was the best performing model based on testing accuracy score of  0.917. Important to note, the model was evaluated in-sample only after random train-test-split and class imbalances were not corrected for. Out-of-sample regime changes and data drifts will likely jeopardize the model performance. 
 
 
 ## Scikit-learn Pipeline
