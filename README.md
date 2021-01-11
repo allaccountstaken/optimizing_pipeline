@@ -12,17 +12,20 @@ Proposed pipeline optimization can be broken down into several parts. First, Pyt
 
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%202.06.56%20PM.png)
 
-Overall, VotingEnsemble was the best performing model based on testing accuracy score of  0.917. Important to note, the model was evaluated in-sample only after random train-test-split and class imbalances were not corrected for. Out-of-sample regime changes and data drifts will likely jeopardize the model performance. 
+Overall, VotingEnsemble was the best performing model based on testing accuracy score of  **0.91745**. Important to note, the model was evaluated in-sample only after random train-test-split and class imbalances were not corrected for. Out-of-sample regime changes and data drifts will likely jeopardize the model performance. 
 
 
 ## Scikit-learn Pipeline
-Linear logistic regression was fit on cleaned training data to produce the best prediction as measured by testing accuracy. Proposed design with isolated model logic in `train.py` requires a preliminary run of the script in order to fit the model, i.e. instantiate and run `LogisticRegression` object. Only once the model is fitted, training accuracy becomes available because it is a computed value returned from `model.predict()`. Baseline accuracy of the first run was **0.913**.
+Linear logistic regression was fit on cleaned training data to produce the best prediction as measured by testing accuracy. Proposed design with isolated model logic in `train.py` requires a preliminary run of the script in order to fit the model, i.e. instantiate and run `LogisticRegression` object. Only once the model is fitted, training accuracy becomes available because it is a computed value returned from `model.predict()`. Baseline accuracy of the first run was **0.91284**.
+
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%207.31.00%20AM.png)
+
 Hyperdrive allows to vary hyper-parameters of the model. Regularization parameter was randomly sampled from (0, 1) uniform space and iterations were randomly selected from the following range: 50, 100, 150, 200, 250. This approach provided a good coverage of possible parameters.
 
 Bandit policy was employed for early termination based on a slack factor of 0.1, evaluation interval of 1, and a delay evaluation of 5. Policy for preventive termination of unsuccessful runs is important to control for resource allocation and time.
 
-The best model achieved testing accuracy of **0.916** with regularization of approximately 0.5 and 100 iterations.
+The best model achieved testing accuracy of **0.91551** with regularization of approximately 0.5 and 100 iterations.
+
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-11%20at%206.39.48%20AM.png)
 
 ## AutoML
@@ -41,8 +44,7 @@ As stated above, two approached are not directly comparable because they follow 
 
 Important, varying regularization of a logistic regression only changes the bias of the selected model, not the model itself. Therefore, hyperdrive approach starts with assumptions about appropriate functional form of the best model that are presumably supported by literature review or empirical evidence. 
 
-AutoML, on the other hand, simply iterates through generally appropriate models, in this case, minimizing entropy at each step. Unsurprisingly, an ensemble of voting or stacked models gives better accuracy with a tradeoff of potentially diminished explainability. 
-
+AutoML, on the other hand, simply iterates through generally appropriate models, in this case, minimizing variance of prediction. Unsurprisingly, an ensemble of voting gives better accuracy with a tradeoff of potentially diminished explainability. 
 
 ## Future work
 Limitation of this study stems from the original problem definition and a much simplified dataset. 
