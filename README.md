@@ -26,7 +26,7 @@ Bandit policy was employed for early termination based on a slack factor of 0.1,
 
 The best model achieved somewhat better testing accuracy of **0.91551** with regularization of approximately 0.5 and 100 iterations.
 
-![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-11%20at%206.39.48%20AM.png)
+![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-11%20at%2010.40.29%20AM.png)
 
 ## AutoML
 Automated machine learning takes fundamentally different approach, as it varies functional form of the model. In other words, this tool goes through a library of binary classifiers and fits the data iteratively. 
@@ -44,11 +44,7 @@ Such approach effectively minimizes weaknesses of contributing models by reducin
 ![](https://github.com/allaccountstaken/optimizing_pipeline/blob/master/img/Screen%20Shot%202021-01-10%20at%203.10.18%20PM.png)
 
 ## Pipeline comparison
-As stated above, two approached are not directly comparable because they follow different knowledge discovery paths. 
-
-Important, varying regularization of a logistic regression only changes the bias of the selected model, not the model itself. Therefore, hyperdrive approach starts with assumptions about appropriate functional form of the best model that are presumably supported by literature review or empirical evidence. 
-
-AutoML, on the other hand, simply iterates through generally appropriate models, in this case, minimizing variance of prediction. Unsurprisingly, an ensemble of voting gives better accuracy with a tradeoff of potentially diminished explainability. 
+As stated above, two approached are not directly comparable because they follow different knowledge discovery paths. Important, varying regularization of a logistic regression only changes the bias of the selected model, not the model itself. Therefore, hyperdrive approach starts with assumptions about appropriate functional form of the best model that are presumably supported by literature review or empirical evidence. AutoML, on the other hand, simply iterates through generally appropriate models, in this case, minimizing variance of prediction. Unsurprisingly, an ensemble of voting gives better accuracy with a tradeoff of potentially diminished explainability. 
 
 ## Future work
 Limitation of the proposed approach stems from the original problem definition and a simplified dataset. It is assumed that panel data, basically a snapshot, can be used to model demand for fixed term deposits.Realistically, decision to place a fixed term deposit is likely time-variant and driven by dynamic utility curves. 
